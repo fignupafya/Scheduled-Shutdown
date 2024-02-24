@@ -41,10 +41,6 @@ def go_button_clicked():
     system(f"shutdown /s {(var1.get() and "/f") or ""} /t {val}")
 
 
-def cancel_shutdown():
-    system(f"shutdown /a")
-
-
 button_frame = tk.Frame(root)
 button_frame.pack(expand=True, pady=(20, 50))
 
@@ -56,7 +52,7 @@ go_button = tk.Button(button_frame, text="GO", command=go_button_clicked, width=
 go_button.configure(background="black", foreground="white")
 go_button.pack(padx=1, pady=1, anchor="center")
 
-reset_button = ttk.Button(root, text="Cancel Shutdown", command=cancel_shutdown, cursor="hand2")
+reset_button = ttk.Button(root, text="Cancel Shutdown", command=lambda: system("shutdown /a"), cursor="hand2")
 reset_button.place(relx=1,rely=1, x=00, y=00, anchor=tk.SE)
 
 root.mainloop()
